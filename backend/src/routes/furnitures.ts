@@ -10,6 +10,7 @@ const FurnitureScheme = z.object ({
     type: z.string(),
     name: z.string(),
     price: z.number(),
+    picture: z.string(),
     description: z.string(),
     material: z.string().array(),
     height: z.number(),

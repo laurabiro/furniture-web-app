@@ -6,7 +6,9 @@ import { router as furnitures } from "./routes/furnitures"
 import { router as news } from "./routes/news"
 import { errorHandler } from "./middleware/errorhandler"
 
+
 const app = express()
+app.use(express.static('database'));
 app.use(cors())
 app.use(express.json())
 app.use(logger)

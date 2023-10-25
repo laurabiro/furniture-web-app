@@ -1,23 +1,45 @@
+import { Route, Routes, useLocation } from "react-router-dom";
+// Routes:
+import Header from "./components/Header";
 import Menu from "./components/Menu";
+import AllStuff from "./components/AllStuff";
+import Basket from "./components/Basket";
+import Livingroom from "./components/Livingroom";
+import DarkMode from "./components/DarkMode";
+import Newsletter from "./components/Newsletter";
+import Contact from "./components/Contact";
+import FAQs from "./components/FAQs";
+import Types from "./components/FurnitureTypes";
+import Footer from "./components/Footer";
 
 function App() {
+
+  const location = useLocation()
+  const footerVisible = location.pathname === "/"
+
   return (
-    <div className="app-cont min-h-screen m-0 flex flex-col justify-between">
-      <header className="pl-5 pr-5 pt-6 bg-[#DEDDE7] border-b-3 border-black border-solid flex justify-between">
-        <p className="header-name text-5xl">livingroom</p>
-        <div className="drawer flex justify-center items-center w-32 h-12 bg-white rounded border-3 border-black border-solid">
-          <div className="drawer-handle w-5 h-5 rounded-full border-2 border-black border-solid bg-gray-300"></div>
-        </div>
-      </header>
+    <div className={`app-cont min-h-screen m-0 flex flex-col ${footerVisible ? "justify-between" : ""}`}>
 
-      
-      <Menu></Menu>
+      <Header></Header>
 
-      <footer className="p-5 m-0 flex justify-between items-center bg-gray-700">
-        <p className="footer-name">FAQ's</p>
-        <div className="to-newsletter bg-[#DEDDE7] h-20 w-20 border-3 border-black border-solid rounded-full">
-        </div>
-      </footer>
+      <main className="overflow-hidden">
+
+        <Routes>
+          <Route path="/" element={ <Menu /> } ></Route>
+          <Route path="/all"  element={ <AllStuff /> }></Route>
+          <Route path="/basket" element={ <Basket /> }></Route>
+          <Route path="/livingroom" element={ <Livingroom /> }></Route>
+          <Route path="/darkmode" element={ <DarkMode /> }></Route>
+          <Route path="/newsletter" element={ <Newsletter /> }></Route>
+          <Route path="/contact" element={ <Contact /> }></Route>
+          <Route path="/faq" element={ <FAQs /> }></Route>
+          <Route path="/types/:type" element={ <Types /> }></Route>
+        </Routes>
+
+      </main>
+
+      { footerVisible && <Footer></Footer> }
+
     </div>
   );
 }

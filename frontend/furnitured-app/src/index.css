@@ -13,8 +13,17 @@ html {
   color-scheme: light;
 }
 
+@media (prefers-color-scheme: dark) {
+  html.adaptive {
+    background: #334;
+    color: #bcd;
+    outline: 5px dotted #000;
+  }
+}
+
 body {
   min-height: 100vh;
+  font-family: itim;
 }
 
 img, picture, svg, video {
@@ -44,38 +53,38 @@ img, picture, svg, video {
   } 
 
   .tables {
-    max-width: 13em;
+    max-width: 16em;
     position: absolute;
     top: 45%;
-    right: 30%;
+    right: 18%;
     cursor: pointer;
   }
   .chairs {
     max-width: 20em;
     position: absolute;
     top: 25%;
-    left: 40%;
+    left: 35%;
     cursor: pointer;
   }
   .cabinets {
     max-width: 25em;
     position: absolute;
     top: 20%;
-    left: 20%;
+    left: 12%;
     cursor: pointer;
   }
   .carpets {
-    max-width: 22em;
+    max-width: 20em;
     position: absolute;
-    top: 50%;
-    left: 40%;
+    top: 55%;
+    left: 33%;
     cursor: pointer;
   }
   .lamps {
     max-width: 23em;
     position: absolute;
     top: 20%;
-    right: 15%;
+    right: 5%;
     cursor: pointer;
   }
   .frames {
@@ -91,14 +100,18 @@ img, picture, svg, video {
 
   .swiper {
     width: 14em;
-    height: 18em;
+    height: 22em;
   }
-  
-  .swiper-slide {
+ 
+  .cont {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    padding: 1em 1em;
+    height: 22em;
+  }
+  .swiper-slide {
     border-radius: .7em;
     font-size: 1em;
     font-weight: bold;
@@ -116,20 +129,40 @@ img, picture, svg, video {
     justify-content: center;
     align-items: center;
     border: black solid 3px;
+    width: 100%;
+    height: 70%;
+  }
+  .title {
+    font-size: 1.4em;
+    letter-spacing: .15em;
   }
   img {
     width:100%;
     height:80%;
   }
   .text {
-    font-size: .8em;
-    padding: 1em;
-    line-height: 1em;
+    font-size: .95em;
+    padding: .6em;
+    line-height: 1.2em;
     text-align: center;
   }
+  .burger {
+    margin-top: 3.15em;
+    width: 92.5%;
+  }
+}
+.darkmode button {
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, 50%);
 }
 
-
+@media only screen and (min-width: 420px ) and (max-width: 1000px){
+  .burger {
+    margin-top: 3.15em;
+    width: 95.5%;
+  }
+}
 
 
 .drawer-handle {
@@ -137,8 +170,93 @@ img, picture, svg, video {
 }
 .header-name {
   font-family: 'Italianno', cursive;
+  position: absolute;
+  bottom: -.3em;
 }
 .footer-name {
   font-family: 'Brygada 1918', serif;
   font-style: italic;
+}
+.burger {
+  margin-top: 3.15em;
+}
+.basket {
+  position: absolute;
+  bottom: 0em;
+}
+.hidden {
+  display: none;
+}
+.shown {
+  display:block;
+}
+input[type='checkbox'] {
+  accent-color: #555863;
+}
+
+.loading-cont {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+.sk-cube-grid {
+  width: 12em;
+  height: 12em;
+}
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  margin: .2em;
+  background-color: white;
+  border: #43454E solid 3px;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
 }
