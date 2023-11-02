@@ -5,15 +5,14 @@ import { useSelectedFurniture } from './SelectedFurnitureContext';
 
 const Livingroom = () => {
     
-    const { selectedFurniture } = useSelectedFurniture()
-/*     const [ furniture, setFurniture ] = useState<Furniture[]>([]) */
+  const { selectedFurniture } = useSelectedFurniture()
 
-    const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-      setIsLoading(false);
-    }, [])
-    console.log(selectedFurniture)
+  useEffect(() => {
+    setIsLoading(false);
+  }, [])
+
  
 
 /*     const [contentchairs, setContentchairs] = useState("") */
@@ -53,11 +52,11 @@ const Livingroom = () => {
                 
                 selectedFurniture.map((furniture) => (
                         
-                    <div key={furniture.id} className={furniture.type + "s"}>
+                  <div key={furniture.id} className={furniture.type + "s"}>
 
-                        <img className={furniture.type} src={furniture.picture} />
+                    <img className={furniture.type} src={furniture.picture} />
 
-                    </div>
+                  </div>
 
                 ))
             }

@@ -329,3 +329,10 @@ input[type='checkbox'] {
   } 
 }
 
+.position-basket {
+  position: absolute;
+  top: -.5em;
+  left: 7em;
+}
+
+

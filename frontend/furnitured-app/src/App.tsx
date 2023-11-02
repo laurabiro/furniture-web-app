@@ -14,8 +14,6 @@ import Footer from "./components/Footer";
 import SelectedFurniture from "./components/SelectedFurniture";
 import { SelectedFurnitureProvider } from "./components/SelectedFurnitureContext";
 
-
-
 function App() {
 
   const location = useLocation()
@@ -49,7 +47,7 @@ function App() {
       { footerVisible && <Footer></Footer> }
 
     </div>
-  );
+  )
 }
 
 export default App

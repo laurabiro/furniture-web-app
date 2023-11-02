@@ -9,7 +9,7 @@ import { useSelectedFurniture } from './SelectedFurnitureContext';
 
 const SelectedFurniture = () => {
 
-    const { addSelectedFurniture } = useSelectedFurniture();
+    const { addSelectedFurniture, orderSelectedFurniture } = useSelectedFurniture()
 
     const [ isLoading, setIsLoading ] = useState(true)
     const [ furniture, setFurniture ] = useState<Furniture | null>(null)
@@ -62,7 +62,11 @@ const SelectedFurniture = () => {
     const handleSelectFurniture = (furniture:Furniture) => {
         addSelectedFurniture(furniture);
         console.log(furniture)
-    };
+    }
+
+    const handleAddToBasket = (furniture:Furniture) => {
+        orderSelectedFurniture(furniture)
+    }
  
   return (
     <div className="flex justify-center">
@@ -97,7 +101,7 @@ const SelectedFurniture = () => {
                         </div>
                         <p className='pl-4 text-[#DEDDE7]'>Add to:</p>
                         <div className=' flex justify-around p-2 pt-0 gap-4'>
-                            <button className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold '>BASKET</button>
+                            <Link to="/basket"><button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold '>BASKET</button></Link>
                             <Link to="/livingroom"><button className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold'>LIVINGROOM</button></Link>
                         </div>
                         <div className='flex justify-between p-4 pt-8 items-center'>
