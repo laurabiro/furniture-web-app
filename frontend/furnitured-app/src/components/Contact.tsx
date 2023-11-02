@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Contact } from "./T";
+import { ContactField } from "./T";
 
 const Contact = () => {
 
@@ -7,7 +7,7 @@ const Contact = () => {
   const [emailValue, setEmailValue] = useState("")
   const [messageValue, setMessageValue] = useState("")
 
-  const contacts:Contact[] = [{name: "William Lerning/Supervisor:", contact: "+42 666 28 28" },
+  const contacts:ContactField[] = [{name: "William Lerning/Supervisor:", contact: "+42 666 28 28" },
     {name: "Amanda Dipesthol/Costumer Care:", contact: "+42 222 89 89" },
     {name: "Costumer service:", contact: "livingroom@living.room" },
   ]

@@ -11,6 +11,10 @@ import Contact from "./components/Contact";
 import FAQs from "./components/FAQs";
 import Types from "./components/FurnitureTypes";
 import Footer from "./components/Footer";
+import SelectedFurniture from "./components/SelectedFurniture";
+import { SelectedFurnitureProvider } from "./components/SelectedFurnitureContext";
+
+
 
 function App() {
 
@@ -24,6 +28,7 @@ function App() {
 
       <main className="overflow-hidden">
 
+      <SelectedFurnitureProvider>
         <Routes>
           <Route path="/" element={ <Menu /> } ></Route>
           <Route path="/all"  element={ <AllStuff /> }></Route>
@@ -34,7 +39,10 @@ function App() {
           <Route path="/contact" element={ <Contact /> }></Route>
           <Route path="/faq" element={ <FAQs /> }></Route>
           <Route path="/types/:type" element={ <Types /> }></Route>
+          <Route path="selected/:id" element={ <SelectedFurniture /> }></Route>
         </Routes>
+      </SelectedFurnitureProvider>
+
 
       </main>
 
@@ -44,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

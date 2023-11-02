@@ -1,49 +1,25 @@
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import axios from "axios";
 import { Option } from "./T";
 
-/* interface Props {
-    onFilterChange: () => void,
-} */
+interface Props {
+  onFilterChange: (selectedOption: string) => void
+  options: Option[]
+} 
 
-const FilterForTypes = (/* { onFilterChange }:Props */) => {
-
-  const options: Option[] = [
-    { opt: "all" },
-    { opt: "price from low to high" },
-    { opt: "price from high to low" },
-    { opt: "size from small to bigg" },
-    { opt: "size from big to small" },
-    { opt: "color from light to dark" },
-    { opt: "color from dark to light" },
-    { opt: "only available items" },
-  ]
+const FilterForTypes = ( { onFilterChange, options }:Props ) => {
 
   const [selected, setSelected] = useState<Option>(options[0])
-  const [sortingOptions, setSortingOptions] = useState([])
 
-  /*   const handleFilterChange = () => {
-    onFilterChange();
-  }; */
-
-  useEffect(() => {
-    const loadSortingOptions = async () => {
-      try {
-        const response = await axios.get("/api/sorting-options")
-        setSortingOptions(response.data)
-      } catch (error) {
-        console.error("Error fetching sorting options:", error)
-      }
-    }
-
-    loadSortingOptions();
-  }, [])
-
+  const setValue = (value: Option) => {
+    onFilterChange(value.opt)
+    setSelected(value)
+  }
+  
   return (
     <div className="w-72">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox as="div" value={selected} onChange={setValue}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-grey-300 sm:text-sm">
             <span className="block truncate">{selected.opt}</span>

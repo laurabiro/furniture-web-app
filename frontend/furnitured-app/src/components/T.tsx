@@ -1,7 +1,7 @@
 import {z} from "zod"
 
 //GetFurnitures, FurnitureTypes
-export const FurnitureScheme = z.array(
+export const FurnitureScheme = 
     z.object({
       id: z.number(),
       type: z.string(),
@@ -16,8 +16,7 @@ export const FurnitureScheme = z.array(
       color: z.array(z.string()),
       luminosity: z.number(),
       availability: z.boolean(),
-    })
-)
+})
 
 export type Furniture = z.infer<typeof FurnitureScheme>
 
@@ -34,14 +33,16 @@ export type Response<Type> =
 }
 
 //Contact
-export type Contact = {
+export type ContactField = {
     name:string
     contact:string
 }
 
 //FilterForTypes
 export type Option = {
-    opt: string;
+    opt: string,
+    type: string,
+    order: string
 }
 
 //Hamburger
@@ -53,7 +54,7 @@ export type Burger = {
 
 //Livingroom
 export type LivingroomFurniture = {
-    isPicked: boolean,
+    status: boolean,
     type: string,
     content: string
 }
@@ -77,3 +78,7 @@ export type Checkbox = {
 export const EmailSchema = z.string().email()
 
 export type Email = z.infer<typeof EmailSchema>
+
+export const AmountSchema = z.number().gt(1)
+
+export type Amount = z.infer<typeof AmountSchema>

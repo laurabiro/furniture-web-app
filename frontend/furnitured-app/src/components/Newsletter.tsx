@@ -1,7 +1,6 @@
 import { useState } from 'react';
 //TYPES
-import { Checkbox } from './T';
-import { Email } from './T';
+import { Checkbox, Email } from './T';
 
 const Newsletter = () => {
 

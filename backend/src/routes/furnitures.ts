@@ -58,8 +58,6 @@ router.get("/", async (req, res) => {
             return true
         }
     })
-    console.log(furnitures)
-
 
    furnitures = furnitures.filter( furniture => {
         if (query.type){
@@ -71,7 +69,6 @@ router.get("/", async (req, res) => {
 
     furnitures = furnitures.filter( furniture => {
         let colors = furniture.color
-        console.log(colors)
         if (query.color) {
             let match = false
             let list: Furniture[] = []
@@ -83,7 +80,6 @@ router.get("/", async (req, res) => {
                 }
             }
             if(match){
-                console.log(list)
                 return list
             }else{
                 return false
@@ -133,37 +129,23 @@ router.get("/", async (req, res) => {
             return true
         }
     })
-
-    if (query.price === "asc") {
-        furnitures.sort((a, b) => a.price - b.price)
-    }
-    if (query.price === "desc") {
-        furnitures.sort((a, b) => b.price - a.price)
-    }
-    if (query.luminosity === "asc") {
-        furnitures.sort((a, b) => b.luminosity - a.luminosity)
-    }
-    if (query.luminosity === "desc") {
-        furnitures.sort((a, b) => a.luminosity - b.luminosity)
-    }
-    if (query.size === "asc") {
-        furnitures.sort((a, b) => {
-            const sizeA = a.height * a.width * a.depth
-            const sizeB = b.height * b.width * b.depth
-            return sizeA - sizeB
-        })
-    }
-    if (query.size === "desc") {
-        furnitures.sort((a, b) => {
-            const sizeA = a.height * a.width * a.depth
-            const sizeB = b.height * b.width * b.depth
-            return sizeB - sizeA
-        })
-    }
-
-    
+   
     return res.json(furnitures)
 })
 
+router.get("/:id", async (req, res) => {
+    req.params.id
+
+    const data = await load("furnitures")
+
+    let db = z.object({ furnitures: FurnitureScheme.array() }).parse(data)
+
+    let furniture = db.furnitures.filter((furniture) => {
+       return ""+furniture.id === req.params.id
+    })
+
+    return res.json(furniture)
+
+})
 
 export { router }

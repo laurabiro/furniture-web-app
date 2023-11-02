@@ -10,7 +10,7 @@
         "width": 600,
         "depth": 500,
         "color": ["beech"],
-        "luminosity": 50,
+        "luminosity": 45,
         "description": "blabla",
         "availability": false
     },
@@ -25,7 +25,7 @@
         "width": 500,
         "depth": 500,
         "color": ["maple"],
-        "luminosity": 30,
+        "luminosity": 55,
         "description": "blabla",
         "availability": false
     },
@@ -55,7 +55,7 @@
         "width": 1000,
         "depth": 700,
         "color": ["orange"],
-        "luminosity": 66,
+        "luminosity": 50,
         "description": "blabla",
         "availability": true
     },
@@ -100,7 +100,7 @@
         "width": 600,
         "depth": 600,
         "color": ["black", "beige"],
-        "luminosity": 10,
+        "luminosity": 70,
         "description": "blabla",
         "availability": false
     },

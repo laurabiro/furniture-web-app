@@ -6,7 +6,7 @@ interface Props {
     onClose: () => void,
 }
 
-const Hamburger = ({ onClose}:Props) => {
+const Hamburger = ({ onClose }:Props) => {
     
     const menuList:Burger[] = [
         {id:1, name: "all stuff", link: "/all"}, 
