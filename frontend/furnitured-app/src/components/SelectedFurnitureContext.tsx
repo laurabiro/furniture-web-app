@@ -29,14 +29,27 @@ export const SelectedFurnitureProvider: React.FC<SelectedFurnitureProviderProps>
   const [ total, setTotal ] = useState<number>(0)
 
   const addSelectedFurniture = (furniture: Furniture) => {
-    selectedFurniture.map((item) => {
-      item.type !== furniture.type ? setSelectedFurniture([...selectedFurniture, furniture]) : setSelectedFurniture([...selectedFurniture.filter(item => item.type !== furniture.type), furniture])
-    })
-    
+
+    const isAlreadySelected = selectedFurniture.some(item => item.type === furniture.type)
+
+    if (isAlreadySelected) {
+
+      setSelectedFurniture(prevSelectedFurniture => prevSelectedFurniture.map(item => {
+        if (item.type === furniture.type) {
+          return furniture
+        }
+        return item
+      }))
+    } else {
+      setSelectedFurniture(prevSelectedFurniture => [...prevSelectedFurniture, furniture])
+    }
   }
+
   const orderSelectedFurniture = (furniture: Furniture) => {
-    setOrderFurniture([...orderFurniture, furniture ])
-    setTotal(total + furniture.price)
+    if (!orderFurniture.some(item => item.id === furniture.id)) {
+      setOrderFurniture([...orderFurniture, furniture])
+      setTotal(total + furniture.price)
+    }
   }
 
 

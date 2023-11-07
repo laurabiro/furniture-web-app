@@ -1,15 +1,29 @@
 import { useState } from 'react';
 import Hamburger from './Hamburger';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false)
+    const navigate = useNavigate()
+
     const handleOpenAndCloseHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
     }
     const handleCloseHamburger = () => {
       setHamburgerOpen(false)
     }
+
+    const handleBasketClick = () => {
+
+      if (window.location.pathname === '/basket') {
+
+          navigate(-1)
+      } else {
+
+          navigate("/basket")
+      }
+      handleCloseHamburger()
+  };
     
   return (
 
@@ -18,7 +32,7 @@ const Header = () => {
         <p className='pr-20'></p>
         <p className="header-name text-5xl cursor-pointer" onClick={handleCloseHamburger}> <Link to="/">livingroom</Link> </p>
         <Link to="/basket">
-          <div className="basket" onClick={handleCloseHamburger}>
+          <div className="basket" onClick={handleBasketClick}>
             <svg className='w-10 h-10 ' viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>

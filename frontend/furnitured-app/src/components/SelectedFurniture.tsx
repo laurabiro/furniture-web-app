@@ -13,7 +13,6 @@ const SelectedFurniture = () => {
 
     const [ isLoading, setIsLoading ] = useState(true)
     const [ furniture, setFurniture ] = useState<Furniture | null>(null)
-    const [ inputAmountValue, setInputAmountValue ] = useState<Amount>(1)
     
     const { id } = useParams()
     const [ length, setLength ] = useState<number | null>(null)
@@ -91,17 +90,17 @@ const SelectedFurniture = () => {
                             <p>-size: {furniture.height} x {furniture.width} x {furniture.depth}</p>
                             <p>-color: {furniture.color.join(", ")}</p>
                         </div>
-                        <div className='text-[#DEDDE7] p-4'>
+                        <div className='text-[#DEDDE7] p-4 pb-0'>
                             <h2 className='text-2xl pb-2 underline'>MORE ABOUT:</h2>
                             <p>{furniture.description}</p>
                         </div>
-                        <div className='text-[#DEDDE7] p-4 flex justify-between'>
-                            <div className='text-4xl'>{ inputAmountValue && inputAmountValue > 0 ? furniture.price * inputAmountValue : furniture.price} $</div>
-                            <input className='rounded-2xl text-center w-28 text-black' type="number" placeholder="1" value={inputAmountValue} min="1"  onChange={((e) => setInputAmountValue(+e.target.value))} />
+                        <div className='text-[#DEDDE7] pl-4'><span className={`${furniture.availability === false ? "text-red-600" :"text-lime-600"}`}>{furniture.availability === false ? "not available " : "avaliable " }</span>at the moment</div>
+                        <div className='text-[#DEDDE7] p-4 flex'>
+                            <div className='text-4xl'>{ furniture.price } $</div>
                         </div>
                         <p className='pl-4 text-[#DEDDE7]'>Add to:</p>
                         <div className=' flex justify-around p-2 pt-0 gap-4'>
-                            <Link to="/basket"><button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold '>BASKET</button></Link>
+                            <button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold '>BASKET</button>
                             <Link to="/livingroom"><button className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold'>LIVINGROOM</button></Link>
                         </div>
                         <div className='flex justify-between p-4 pt-8 items-center'>

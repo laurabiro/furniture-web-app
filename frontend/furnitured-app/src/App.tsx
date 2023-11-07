@@ -21,12 +21,12 @@ function App() {
 
   return (
     <div className={`app-cont min-h-screen m-0 flex flex-col ${footerVisible ? "justify-between" : ""}`}>
+      <SelectedFurnitureProvider>
 
       <Header></Header>
 
       <main className="overflow-hidden">
 
-      <SelectedFurnitureProvider>
         <Routes>
           <Route path="/" element={ <Menu /> } ></Route>
           <Route path="/all"  element={ <AllStuff /> }></Route>
@@ -39,12 +39,11 @@ function App() {
           <Route path="/types/:type" element={ <Types /> }></Route>
           <Route path="selected/:id" element={ <SelectedFurniture /> }></Route>
         </Routes>
-      </SelectedFurnitureProvider>
-
-
+      
       </main>
 
-      { footerVisible && <Footer></Footer> }
+      { footerVisible && <Footer/> }
+      </SelectedFurnitureProvider>
 
     </div>
   )

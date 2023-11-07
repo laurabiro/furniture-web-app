@@ -6,7 +6,6 @@ import { useSelectedFurniture } from './SelectedFurnitureContext';
 const Livingroom = () => {
     
   const { selectedFurniture } = useSelectedFurniture()
-
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -50,9 +49,9 @@ const Livingroom = () => {
         <div className="grid-box">
             { isLoading ? <Loading/> :
                 
-                selectedFurniture.map((furniture) => (
+                selectedFurniture.map((furniture, index) => (
                         
-                  <div key={furniture.id} className={furniture.type + "s"}>
+                  <div key={index} className={furniture.type + "s"}>
 
                     <img className={furniture.type} src={furniture.picture} />
 

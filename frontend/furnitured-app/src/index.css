@@ -174,7 +174,7 @@ img, picture, svg, video {
   .tables {
     grid-area: tabli;
     display: flex;
-    align-items:end;
+    align-items: flex-end;
   }
   .chair {
     max-width: 7em;
@@ -184,7 +184,7 @@ img, picture, svg, video {
   .chairs {
     grid-area: chair;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 
   }
   .cabinet {
@@ -199,7 +199,7 @@ img, picture, svg, video {
   .carpets {
     grid-area: carpet;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
   }
   .lamp {
     height: auto;
@@ -207,7 +207,7 @@ img, picture, svg, video {
   .lamps {
     grid-area: lamp;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
   }
   .frame {
     max-width: 3em;
@@ -215,7 +215,7 @@ img, picture, svg, video {
   }
   .frames {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     grid-area: frame;
   } 
 }

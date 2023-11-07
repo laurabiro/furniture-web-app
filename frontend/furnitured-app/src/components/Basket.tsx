@@ -1,42 +1,89 @@
 import { useSelectedFurniture } from './SelectedFurnitureContext';
 import { Link } from 'react-router-dom';
 import { Furniture } from './T';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+// number inputnak nincsenek nyilai(css?), amount-ot nem menti el, kitörölt item-ek újabb item kosárba rakása után visszajönnek... 
 
 const Basket = () => {
 
   const { orderFurniture, total } = useSelectedFurniture()
   const [ updatedOrderFurniture, setUpdatedOrderFurniture ] = useState<Furniture[]>(orderFurniture)
   const [ updateTotal , setUpdateTotal ] = useState<number>(total)
+  const [ amounts, setAmounts ] = useState<{ [itemId: number]: number }>({})
 
+
+  const calculateTotal = useCallback((items: Furniture[]) => {
+    return items.reduce((acc, item) => {
+      const quantity = amounts[item.id] || 1
+      return acc + item.price * quantity
+    }, 0)
+  }, [amounts])
+
+  useEffect(() => {
+    const updatedTotal = calculateTotal(updatedOrderFurniture)
+    setUpdateTotal(updatedTotal)
+
+    localStorage.setItem('basket', JSON.stringify(updatedOrderFurniture));
+    localStorage.setItem('total', JSON.stringify(updateTotal))
+    localStorage.setItem('amounts', JSON.stringify(amounts));
+  }, [updatedOrderFurniture, calculateTotal, updateTotal, amounts, orderFurniture])
+  
   const handleDeleteItem = (id:number) => {
-    const result = updatedOrderFurniture.filter(item => id !== item.id)
-    setUpdatedOrderFurniture(result)
-    const prices = result.reduce((acc, item) => acc + item.price, 0)
-    setUpdateTotal(prices)
+    const updatedBasket = updatedOrderFurniture.filter((furniture) => furniture.id !== id)
+
+    setUpdatedOrderFurniture(updatedBasket)
+    setUpdateTotal(calculateTotal(updatedBasket))
+
+
+    localStorage.setItem('basket', JSON.stringify(updatedBasket))
+    localStorage.setItem('total', JSON.stringify(calculateTotal(updatedBasket)))
+
+    const updatedAmounts = { ...amounts }
+    delete updatedAmounts[id]
+    localStorage.setItem('amounts', JSON.stringify(updatedAmounts))
+    setAmounts(updatedAmounts)
   }
 
+  const updateAmount = (id: number, newAmount: number) => {
+    setAmounts((prevAmounts) => ({
+      ...prevAmounts,
+      [id]: newAmount,
+    }))
+  }
+
+  const calculatePrice = (item:Furniture, amount:number) => {
+    const price = item.price * (amount || 1)
+    return `${price} $`
+  }
+ 
   return (
     <div className="flex justify-center">
       <div className="flex flex-col gap-2 w-11/12 bg-[#DEDDE7] pt-6 p-2">
         <h1 className="text-center">CHECKOUT</h1>
 
         { updatedOrderFurniture.map((item) => (
-          <div key={item.id}>
-            <div className='flex justify-between gap-8  p-4'>
-              <div className="flex flex-1 bg-white rounded-lg border-2 border-black border-solid">
-                <div className='p-1'><Link to={`/selected/${item.id}`}>{item.name}</Link></div>
+          <div key={item.id} className='flex flex-col items-stretch'>
+            <div className='flex justify-between gap4'>
+              <div className='flex'>
+                <div className="flex w-36 bg-white rounded-lg border-2 border-black border-solid">
+                  <p className='p-1'><Link to={`/selected/${item.id}`}>{item.name}</Link></p>
+                </div>
+
+                <div className='flex w-24 items-center justify-center'>
+                  <input className="w-12 rounded-xl placeholder:text-center text-center border-2 border-black border-solid" type="number" name={item.name} placeholder="1" min={1} value={amounts[item.id] || ""} onChange={(e) => updateAmount(item.id, parseInt(e.target.value))}/>
+                </div>
               </div>
-              <div className='flex items-center'>
-                <input className="w-20 rounded-xl placeholder:text-center text-center flex-1 border-2 border-black border-solid" type="number" placeholder="1"/>
+      
+              <div className="flex flex-2 items-center gap-4">
+                  <label htmlFor={item.name} className="pr-4"> {calculatePrice(item, amounts[item.id])} </label>
+                  <button onClick={ () => handleDeleteItem(item.id ) }>x</button>
               </div>
-            <div className="flex items-center">
-                <div className="pr-4">{item.price + " $"}</div>
-                <button onClick={ () => handleDeleteItem(item.id) }>x</button>
-              </div>
+
             </div>
-            </div>
-          ))}
+
+          </div>
+        ))}
 
         <div className='flex justify-between p-4 pt-0 border-t-2 border-t-black border-solid'>
           <div className="">TOTAL</div>
