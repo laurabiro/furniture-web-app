@@ -20,31 +20,32 @@ function App() {
   const footerVisible = location.pathname === "/"
 
   return (
+    
     <div className={`app-cont min-h-screen m-0 flex flex-col ${footerVisible ? "justify-between" : ""}`}>
       <SelectedFurnitureProvider>
 
-      <Header></Header>
+        <Header></Header>
 
-      <main className="overflow-hidden">
+        <main className="overflow-hidden pt-16">
 
-        <Routes>
-          <Route path="/" element={ <Menu /> } ></Route>
-          <Route path="/all"  element={ <AllStuff /> }></Route>
-          <Route path="/basket" element={ <Basket /> }></Route>
-          <Route path="/livingroom" element={ <Livingroom /> }></Route>
-          <Route path="/darkmode" element={ <DarkMode /> }></Route>
-          <Route path="/newsletter" element={ <Newsletter /> }></Route>
-          <Route path="/contact" element={ <Contact /> }></Route>
-          <Route path="/faq" element={ <FAQs /> }></Route>
-          <Route path="/types/:type" element={ <Types /> }></Route>
-          <Route path="selected/:id" element={ <SelectedFurniture /> }></Route>
-        </Routes>
-      
-      </main>
+          <Routes>
+            <Route path="/" element={ <Menu /> } ></Route>
+            <Route path="/all"  element={ <AllStuff /> }></Route>
+            <Route path="/basket" element={ <Basket /> }></Route>
+            <Route path="/livingroom" element={ <Livingroom /> }></Route>
+            <Route path="/darkmode" element={ <DarkMode /> }></Route>
+            <Route path="/newsletter" element={ <Newsletter /> }></Route>
+            <Route path="/contact" element={ <Contact /> }></Route>
+            <Route path="/faq" element={ <FAQs /> }></Route>
+            <Route path="/types/:type" element={ <Types /> }></Route>
+            <Route path="selected/:id" element={ <SelectedFurniture /> }></Route>
+          </Routes>
+        
+        </main>
 
-      { footerVisible && <Footer/> }
+        { footerVisible && <Footer/> }
+
       </SelectedFurnitureProvider>
-
     </div>
   )
 }

@@ -21,14 +21,13 @@ const getFurnitures = async (type?: string ): Promise<AxiosResponse | null> => {
 }
 
 const getFilteredFurnitures = async (id?: string ): Promise<AxiosResponse | null> => {
-  try {
+  try { 
     const response = await client.get(`/api/furnitures/${id}`)
     return response
   } catch (error) {
     return (error as AxiosError).response || null
   }
 }
-
 
 // VALIDATION ----------------------------------------------------------------------------------------------------------------------
 export const validateFurnitures = (response: AxiosResponse): Furniture[] | null => {

@@ -51,7 +51,7 @@ const Menu =() => {
   const matches = useMediaQuery("(max-width: 1000px)")
 
   return (
-    <>
+    <div className="flex items-center pt-28">
       {matches ? (
         <Swiper
           effect={"cards"}
@@ -62,7 +62,7 @@ const Menu =() => {
           {slides.map((slide, index) => (
             
             <SwiperSlide>
-              <div key={index} className="cont">
+              <div key={index} className="cont z-10">
 
                 <p className="title">{furnitures.includes(slide.title) ? (slide.title + "s") : slide.title}</p>
                 <Link className="link" to={furnitures.includes(slide.title) ? `/types/${slide.title}` : ''}>
@@ -91,15 +91,17 @@ const Menu =() => {
           
           {furnitures.map((furniture, index) => (
             <div key={index}>
-              <Link className="link" to="/types" >
-                <img className={furniture + "s" } src={furniture + ".png"}  alt="" />
+              <Link className="link" to={`/types/${furniture}`}>
+                <div className={furniture + "s"}>
+                <img className={furniture} src={furniture + ".png"}  alt="" />
+                </div>
               </Link>
             </div>
           ))}
           
         </div>
       )}
-    </>
+    </div>
   )
 }
 

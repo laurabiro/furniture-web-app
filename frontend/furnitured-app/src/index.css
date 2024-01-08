@@ -35,8 +35,7 @@ img, picture, svg, video {
 /* --- Variables --- */
 :root {
   --bg-img-layer: -10;
-  --nav-layer: 10;
-  
+  --nav-layer: 10; 
 }
 /* --- Variables --- */
 
@@ -44,58 +43,95 @@ img, picture, svg, video {
 @tailwind components;
 @tailwind utilities;
 
+/* --- DARK MODE BUTTON FIX --- */
 
+*, ::before, ::after {
+  --tw-backdrop-opacity: 1;
+}
+
+/* media for desktop view menu(furniture buttons) ---------------------------------------------------------------------------------------- */
 @media only screen and (min-width: 1000px) {
 
-  .floor {
-    height: 7vh;
-    border-bottom: black solid 2px;
-  } 
+  .grid-box {
+    display: grid;
+    padding-top: 6em;
+    grid-gap: .1em;
+    grid-template-columns: 7em  8em 5em 5em;
+    grid-template-rows: 8em 8em 2em 8em;
+    grid-template-areas:
+               "cabinet chair frame lamp"
+               "cabinet chair tabli lamp"
+               ". carpet table ."
+               "back back back back"
+  }
 
+  .table {
+    height: auto;
+    cursor: pointer;
+  }
   .tables {
-    max-width: 16em;
-    position: absolute;
-    top: 45%;
-    right: 18%;
+    grid-area: tabli;
+    display: flex;
+    align-items: flex-end;
+  }
+  .chair {
+    max-width: 7em;
+    height: auto;
     cursor: pointer;
   }
   .chairs {
-    max-width: 20em;
-    position: absolute;
-    top: 25%;
-    left: 35%;
+    grid-area: chair;
+    display: flex;
+    align-items: flex-end;
+  }
+  .cabinet {
+    height:auto;
     cursor: pointer;
   }
   .cabinets {
-    max-width: 25em;
-    position: absolute;
-    top: 20%;
-    left: 12%;
-    cursor: pointer;
+    grid-area: cabinet;
+    display: flex;
+    align-items: center;
   }
   .carpets {
-    max-width: 20em;
-    position: absolute;
-    top: 55%;
-    left: 33%;
+    grid-area: carpet;
+    display: flex;
+    align-items: flex-start;
+  }
+  .lamp {
+    height: auto;
+    cursor: pointer;
     cursor: pointer;
   }
   .lamps {
-    max-width: 23em;
-    position: absolute;
-    top: 20%;
-    right: 5%;
+    grid-area: lamp;
+    display: flex;
+    align-items: flex-end;
+  }
+  .frame {
+    max-width: 3em;
+    height: auto;
     cursor: pointer;
   }
   .frames {
-    max-width: 10em;
-    position: absolute;
-    top: 10%;
-    right: 30%;
-    cursor: pointer;
-  } 
+    display: flex;
+    align-items: flex-end;
+    grid-area: frame;
+  }
+
+  .back-button {
+    grid-area: back;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+ 
+
 }
 
+/* media for mobile view (swiper menu, hamburger menu, livingroom gridbox) ----------------------------------------------------------- */
 @media only screen and (max-width: 1000px) {
 
   .swiper {
@@ -111,6 +147,7 @@ img, picture, svg, video {
     padding: 1em 1em;
     height: 22em;
   }
+
   .swiper-slide {
     border-radius: .7em;
     font-size: 1em;
@@ -146,10 +183,7 @@ img, picture, svg, video {
     line-height: 1.2em;
     text-align: center;
   }
-  .burger {
-    margin-top: 3.15em;
-    width: 92.5%;
-  }
+
   .grid-box {
     display: grid;
     padding-top: 6em;
@@ -179,16 +213,13 @@ img, picture, svg, video {
   .chair {
     max-width: 7em;
     height: auto;
-
   }
   .chairs {
     grid-area: chair;
     display: flex;
     align-items: flex-end;
-
   }
   .cabinet {
-
     height:auto;
   }
   .cabinets {
@@ -219,20 +250,21 @@ img, picture, svg, video {
     grid-area: frame;
   } 
 }
-.darkmode button {
-  top: 50%;
-  right: 50%;
-  transform: translate(-50%, 50%);
+
+/* style for hamburger ------------------------------------------------------------------------------------------------------------ */
+.burger {
+  margin-top: 3.15em;
 }
 
-@media only screen and (min-width: 420px ) and (max-width: 1000px){
+/* media for hamburger menu ------------------------------------------------------------------------------------------------------------ */
+@media only screen and (min-width: 200px ) and (max-width: 1000px){
   .burger {
     margin-top: 3.15em;
-    width: 95.5%;
+    width: 94%;
   }
 }
 
-
+/* style for header ------------------------------------------------------------------------------------------------------------ */
 .drawer-handle {
   box-shadow: 5px 3px 5px rgb(107, 107, 117);
 }
@@ -241,27 +273,23 @@ img, picture, svg, video {
   position: absolute;
   bottom: -.3em;
 }
+.basket {
+  position: absolute;
+  bottom: 0;
+}
+
+/* style for footer ------------------------------------------------------------------------------------------------------------ */
 .footer-name {
   font-family: 'Brygada 1918', serif;
   font-style: italic;
 }
-.burger {
-  margin-top: 3.15em;
-}
-.basket {
-  position: absolute;
-  bottom: 0em;
-}
-.hidden {
-  display: none;
-}
-.shown {
-  display:block;
-}
+
+/* style for checkboxes ------------------------------------------------------------------------------------------------------------ */
 input[type='checkbox'] {
   accent-color: #555863;
 }
 
+/* style for loading ------------------------------------------------------------------------------------------------------------ */
 .loading-cont {
   position: absolute;
   top: 50%;
@@ -328,11 +356,3 @@ input[type='checkbox'] {
             transform: scale3D(0, 0, 1);
   } 
 }
-
-.position-basket {
-  position: absolute;
-  top: -.5em;
-  left: 7em;
-}
-
-

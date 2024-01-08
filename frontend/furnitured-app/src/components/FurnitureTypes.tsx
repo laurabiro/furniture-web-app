@@ -49,10 +49,10 @@ const FurnitureTypes = () => {
           sortedFurnitures.sort((a, b) => a.price - b.price);
         } else if (option.type === "size") {
           sortedFurnitures.sort((a, b) => {
-            const sizeA = a.height * a.width * a.depth;
-            const sizeB = b.height * b.width * b.depth;
-            return sizeA - sizeB;
-          });
+            const sizeA = a.height * a.width * a.depth
+            const sizeB = b.height * b.width * b.depth
+            return sizeA - sizeB
+          })
         } else if (option.type === "color") {
           sortedFurnitures.sort((a, b) => b.luminosity - a.luminosity);
         }
@@ -61,9 +61,9 @@ const FurnitureTypes = () => {
           sortedFurnitures.sort((a, b) => b.price - a.price);
         } else if (option.type === "size") {
           sortedFurnitures.sort((a, b) => {
-            const sizeA = a.height * a.width * a.depth;
-            const sizeB = b.height * b.width * b.depth;
-            return sizeB - sizeA;
+            const sizeA = a.height * a.width * a.depth
+            const sizeB = b.height * b.width * b.depth
+            return sizeB - sizeA
           });
         } else if (option.type === "color") {
           sortedFurnitures.sort((a, b) => a.luminosity - b.luminosity);
@@ -76,21 +76,22 @@ const FurnitureTypes = () => {
     setSortOrder(selectedOption)
   } 
 
-
-
-
   return (
     <div className=" pl-4 pr-4 flex justify-center">
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-wrap gap-8 justify-center w-11/12 bg-[#43454E] p-2 pt-6">
-          <FilterForTypes onFilterChange={ handleFilterChange } options={ options } />
+        <div className="flex flex-col w-11/12 bg-[#43454E] p-2 pt-6 h-screen">
+          <div className=" flex justify-center p-10 ">
+            <FilterForTypes onFilterChange={ handleFilterChange } options={ options } />
+          </div>
+          <div className="cardsoftypes flex flex-wrap gap-8 justify-center p-8">
+          
           { furnitures[0] !== undefined ?
           sortedFurnitures.map((furniture) => (
             <div
               key={furniture.id}
-              className="flex justify-around w-full max-w-xl items-center bg-white p-2 rounded-lg gap-2"
+              className="flex justify-around w-80 max-w-xl items-center bg-white p-2 rounded-lg gap-2"
             >
 
               <Link to={`/selected/${furniture.id}`}>
@@ -116,8 +117,10 @@ const FurnitureTypes = () => {
                 </p>
                 <p className="pl-1 text-sm">- {furniture.color.join(", ")}</p>
               </div>
+              
 
             </div>
+            
           )) : <NoServer/> }
 
           <div className="flex justify-between w-full p-6 items-center">
@@ -131,6 +134,7 @@ const FurnitureTypes = () => {
               </div>
             </Link>
           </div>
+        </div>
         </div>
       )}
     </div>

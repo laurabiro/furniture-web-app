@@ -1,48 +1,25 @@
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelectedFurniture } from './SelectedFurnitureContext';
 
 const Livingroom = () => {
     
   const { selectedFurniture } = useSelectedFurniture()
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setIsLoading(false);
   }, [])
 
- 
+  const handleBack = () => {
 
-/*     const [contentchairs, setContentchairs] = useState("") */
-  /*   const [contentcabinets, setContentcabinets] = useState("")
-    const [contentlamps, setContentlamps] = useState("")
-    const [contentcarpets, setContentcarpets] = useState("")
-    const [contentframes, setContentframes] = useState("")  */ 
+    if (window.location.pathname === '/livingroom') {
 
-/*     const livingroom:LivingroomFurniture[] = [{status: true, type: "tables", content: "contenttables"},
-        {status: true, type: "chairs", content: "contentchairs"},
-        {status: true, type: "cabinets", content: "contentcabinets"},
-        {status: true, type: "lamps", content: "contentlamps"},
-        {status: true, type: "carpets", content: "contentcarpets"},
-        {status: true, type: "frames", content: "contentframes"},
-    ]
-
-    useEffect(() => {
-        const load = async () => {
-          const result = await loadFurnitures()
-          if(result.success){
-            const data = result.data
-            const selected = data.filter((selected) => selected.id === +location.state)
-            setFurniture(selected)
-        
-            setContentchairs(furniture[0].picture)
-
-          }
-          setIsLoading(false)
-        }
-        load()
-    }, [location.state, furniture]) */
+      navigate(-1)
+    }
+  }
  
   return (
     <div className="flex justify-center">
@@ -60,7 +37,7 @@ const Livingroom = () => {
                 ))
             }
             <div className=" back-button">
-                <Link to="/all"><button >back</button></Link>
+                <button onClick={ handleBack } >back</button>
             </div>
         </div>    
     </div>

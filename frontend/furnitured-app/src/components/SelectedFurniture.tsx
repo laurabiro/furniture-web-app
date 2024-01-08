@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Furniture, Amount } from './T';
+import { Furniture } from './T';
 import { loadFilteredFurnitures, loadFurnitures} from "./GetFurnitures";
 import Loading  from "./Loading";
 import NoServer from './NoServer';
@@ -9,13 +9,15 @@ import { useSelectedFurniture } from './SelectedFurnitureContext';
 
 const SelectedFurniture = () => {
 
-    const { addSelectedFurniture, orderSelectedFurniture } = useSelectedFurniture()
+    const { addSelectedFurniture, orderSelectedFurniture, message } = useSelectedFurniture()
 
     const [ isLoading, setIsLoading ] = useState(true)
     const [ furniture, setFurniture ] = useState<Furniture | null>(null)
     
     const { id } = useParams()
     const [ length, setLength ] = useState<number | null>(null)
+/* 
+    const [message, setMessage] = useState<string | null>(null) */
     
     const navigate = useNavigate()
 
@@ -26,14 +28,12 @@ const SelectedFurniture = () => {
             const data = result.data[0]
 
             setFurniture(data)
-            addSelectedFurniture(data)
             await getLength()
           }
           setIsLoading(false)
   
         }
         load()
-
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
@@ -58,13 +58,12 @@ const SelectedFurniture = () => {
         navigate(`/selected/${id ? ( +id > 1 ? +id-1 : 1) : null}`)
     }
 
-    const handleSelectFurniture = (furniture:Furniture) => {
-        addSelectedFurniture(furniture);
-        console.log(furniture)
-    }
-
     const handleAddToBasket = (furniture:Furniture) => {
         orderSelectedFurniture(furniture)
+    }
+
+    const handleAddToLivingroom = (furniture:Furniture) => {
+        addSelectedFurniture(furniture)
     }
  
   return (
@@ -73,7 +72,7 @@ const SelectedFurniture = () => {
         { isLoading ? ( 
             <Loading />
             ) : (
-            <div className='flex flex-wrap gap-8 justify-center w-11/12 bg-[#43454E] pt-6 pb-2'>
+            <div className='flex flex-wrap gap-8 justify-center w-11/12 bg-[#43454E] pt-6 pb-2  dark:bg-gray-900'>
 
                 {  furniture ?
                     
@@ -99,14 +98,16 @@ const SelectedFurniture = () => {
                             <div className='text-4xl'>{ furniture.price } $</div>
                         </div>
                         <p className='pl-4 text-[#DEDDE7]'>Add to:</p>
-                        <div className=' flex justify-around p-2 pt-0 gap-4'>
-                            <button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold '>BASKET</button>
-                            <Link to="/livingroom"><button className='p-4 bg-[#DEDDE7] rounded-xl flex-1 font-semibold'>LIVINGROOM</button></Link>
+                        <div className=' flex justify-center p-2 pt-0 gap-8'>
+                            <button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl font-semibold flex-2'>BASKET</button>
+                            <div className="flex justify-center items-center text-white w-60">{message}</div>
+                            <Link to="/livingroom"><button className='p-4 bg-[#DEDDE7] rounded-xl font-semibold' onClick={() => handleAddToLivingroom(furniture)}>LIVINGROOM</button></Link>
+                            
                         </div>
                         <div className='flex justify-between p-4 pt-8 items-center'>
-                            <Link to="/all" onClick={() => handleSelectFurniture(furniture)}><div className='rounded-full bg-white p-10 border-black border-solid border-2'>back</div></Link>
-                            <div className={`text-2xl p-2 ${furniture.id === 1 ? "text-[#43454E]" : "text-[#DEDDE7]"} `} onClick={ handlePrevious }>previous</div>
-                            <div className={`text-2xl p-2 ${furniture.id === length ? "text-[#43454E]" : "text-[#DEDDE7]"}`} onClick={ handleNext }>next</div>
+                            <Link to="/all"><div className='rounded-full bg-white p-10 border-black border-solid border-2'>back</div></Link>
+                            <div className={`text-2xl p-2 ${furniture.id === 1 ? "text-[#43454E] dark:text-gray-900" : "text-[#DEDDE7]"} cursor-pointer`} onClick={ handlePrevious }>previous</div>
+                            <div className={`text-2xl p-2 ${furniture.id === length ? "text-[#43454E] dark:text-gray-900 " : "text-[#DEDDE7] "} cursor-pointer`} onClick={ handleNext }>next</div>
                         </div>
 
                     </div>

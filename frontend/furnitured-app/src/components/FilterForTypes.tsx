@@ -18,6 +18,7 @@ const FilterForTypes = ( { onFilterChange, options }:Props ) => {
   }
   
   return (
+
     <div className="w-72">
       <Listbox as="div" value={selected} onChange={setValue}>
         <div className="relative mt-1">
@@ -65,6 +66,7 @@ const FilterForTypes = ( { onFilterChange, options }:Props ) => {
         </div>
       </Listbox>
     </div>
+    
   )
 }
 

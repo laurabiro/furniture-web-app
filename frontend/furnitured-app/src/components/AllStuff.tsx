@@ -23,25 +23,26 @@ const AllStuff = () => {
   }, [])
   
   return (
-    <div className=" pl-4 pr-4 flex justify-center">
+    <div className=" pl-4 pr-4 flex justify-center dark:bg-gray-950">
       { isLoading ? ( 
           <Loading />
         ) : (
-          <div className="flex flex-wrap gap-8 justify-center w-11/12 bg-[#43454E] p-2 pt-6">
+          <div className="flex flex-wrap gap-8 justify-center w-11/12 bg-[#43454E] dark:bg-slate-900 p-2 pt-6">
             { furnitures[0] !== undefined ?
               furnitures.map((furniture) => (
 
                 <div key={furniture.id} className="flex justify-around w-full max-w-xl items-center bg-white p-2 rounded-lg gap-2">
+                  
                   <Link className="flex-1 flex justify-center items-center" to={`/selected/${furniture.id}`}>
                     <div >
-                      <img className=" h-36 w-auto" src={furniture.picture} alt={furniture.name} />
+                      <img className=" h-36 w-auto rounded-lg" src={furniture.picture} alt={furniture.name} />
                     </div>
                   </Link>
 
-                  <div className="flex-2 w-1/2 pl-2">
+                  <div className="flex-2 w-1/2 pl-2 dark:bg-slate-950 dark:text-[#DEDDE7] rounded-lg pb-1">
                     <h1 className=" text-2xl font-semibold" >{furniture.name}</h1>
                     <p className="text-2xl">{furniture.price} $</p>
-                    <h2 className=" decoration-black underline" >DESCRIPTION:</h2>
+                    <h2 className=" decoration-black underline dark:decoration-[#DEDDE7]" >DESCRIPTION:</h2>
 
                     <p className='pl-1 text-sm'>- {furniture.material.join(", ")}</p>
                     <p className='pl-1 text-sm'>- {furniture.height} x {furniture.width} x {furniture.depth}</p>

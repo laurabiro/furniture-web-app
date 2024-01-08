@@ -17,23 +17,23 @@ const Header = () => {
 
       if (window.location.pathname === '/basket') {
 
-          navigate(-1)
+        navigate(-1)
       } else {
 
-          navigate("/basket")
+        navigate("/basket")
       }
       handleCloseHamburger()
-  };
+  }
     
   return (
 
-    <div className="pl-4 pr-4 pt-4 bg-[#DEDDE7] border-b-3 border-black border-solid flex justify-between z-10 relative w-full">
+    <div className="pl-4 pr-4 pt-4 bg-[#DEDDE7] dark:bg-gray-900 border-b-3 border-black border-solid flex justify-between z-50 w-full fixed top-0">
         { hamburgerOpen &&  <Hamburger onClose={() => setHamburgerOpen(false)} /> } 
         <p className='pr-20'></p>
-        <p className="header-name text-5xl cursor-pointer" onClick={handleCloseHamburger}> <Link to="/">livingroom</Link> </p>
+        <p className="header-name text-5xl cursor-pointer dark:text-[#DEDDE7]" onClick={handleCloseHamburger}> <Link to="/">livingroom</Link> </p>
         <Link to="/basket">
           <div className="basket" onClick={handleBasketClick}>
-            <svg className='w-10 h-10 ' viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='w-10 h-10 dark:bg-[#DEDDE7] rounded-lg pt-1 pb-0 pr-1' viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
 
@@ -45,7 +45,7 @@ const Header = () => {
           </div>
         </Link>
         <div className="drawer flex justify-center items-center w-32 h-12 bg-white rounded border-3 border-black border-solid cursor-pointer" onClick={handleOpenAndCloseHamburger}>   
-            <div className="drawer-handle w-5 h-5 rounded-full border-2 border-black border-solid bg-gray-300"></div>
+            <div className="drawer-handle w-5 h-5 rounded-full border-2 dark:bg-[#DEDDE7] border-black border-solid bg-gray-300"></div>
         </div>
     </div>
   )

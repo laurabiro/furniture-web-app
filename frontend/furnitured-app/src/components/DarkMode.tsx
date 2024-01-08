@@ -1,24 +1,13 @@
-import {useState} from "react";
+import ThemeSwitch from "./ThemeSwitch"
+
 
 const DarkMode = () => {
 
-    const [onOrOff, setOnOrOff] = useState("On")
-
-    const handle = () => {
-        if(onOrOff === "On"){
-            setOnOrOff("Off")
-        }else{
-            setOnOrOff("On")
-        }
-    }
-
-  return (
-    
-    <div className="darmode h-screen flex justify-center items-center">
-        <button className={` p-4 rounded-lg ${onOrOff === "On" ? "bg-black text-white" : "bg-white text-black border-black border-solid border-2"} `} onClick={ handle }> Turn { onOrOff } DarkMode</button>
-    </div>
-    
-  )
+    return (
+        <div className="dark:bg-gray-900 h-screen pt-20 flex justify-center">
+            <ThemeSwitch></ThemeSwitch>
+        </div>
+    )
 }
 
 export default DarkMode

@@ -1,4 +1,3 @@
-
 const NoServer = () => {
   return (
     <div className='w-full'>
