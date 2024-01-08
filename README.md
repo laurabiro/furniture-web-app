@@ -80,7 +80,7 @@ ________________________________________________________________________
 
 FOLDER STRUCTURE
 
- The project has the following folder structure:
+ -The project has the following folder structure:
  
  furnitured-app
  
@@ -110,11 +110,14 @@ ________________________________________________________________________
 
 USAGE
 
- To start the development server, run:
+ -To start the development server, run:
  
  npm run dev
 
- Available Scripts
+________________________________________________________________________
+________________________________________________________________________
+
+AVAIBLE SCRIPTS
 
  npm run dev: Run the development server
  
@@ -130,7 +133,7 @@ ________________________________________________________________________
 
 LINTING
 
- Lint your project using the following script:
+ -Lint your project using the following script:
  
  npm run lint
  
