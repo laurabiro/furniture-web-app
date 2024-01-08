@@ -69,9 +69,18 @@ INSTALLATION
 -Clone repository:
 
   git clone https://github.com/laurabiro/furniture-web-app
+  
   cd furnitured-app
 
 -Install dependencies:
+
+  npm install
+
+  &&
+
+  cd backend
+
+  -Install dependencies:
 
   npm install
 
@@ -110,11 +119,15 @@ ________________________________________________________________________
 
 USAGE
 
- -To start the development server, run:
+ -To start run furnitured-app:
  
  npm run dev
 
  ( Do not forget to run backend at the same time ! )
+
+ -&& run backend:
+
+ npm start
 
 ________________________________________________________________________
 ________________________________________________________________________
