@@ -14,23 +14,36 @@ Furnitured App
  The last to mention among many others to keep user's engagement in the application is the newsletter, which sends information via email only in the selected subjects that meet the user's interest.
 
 Explore Furnitured App Design
+
  To gain insights into the design concepts and user interface of Furnitured App, you can view my Figma project here:
+ 
   https://www.figma.com/file/JSTAivVEQGyrKkILNK6ofT/API?type=design&node-id=0-1&mode=design&t=s1dpDcizYP1HILtM-0
  
  For those interested in the technical aspects, the codebase is also available for review.
  Your insights are incredibly valuable at this stage, and I welcome your feedback as I actively work on shaping Furnitured App.
 
 Table of Contents
+
  -Getting Started
+ 
  -Prerequisites
+ 
  -Installation
+ 
  -Folder Structure
+ 
  -Usage
+ 
  -Available Scripts
+ 
  -Linting
+ 
  -Contributing
+ 
  -License
+ 
  -Acknowledgments
+ 
 
 Getting Started
  These instructions will help you set up and run the Furnitured App on your local machine.
