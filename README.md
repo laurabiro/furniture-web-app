@@ -46,56 +46,94 @@ Table of Contents
  
 
 Getting Started
+
  These instructions will help you set up and run the Furnitured App on your local machine.
 
 Prerequisites
+
  Make sure you have Node.js and npm installed.
 
 Clone repository:
+
  git clone https://github.com/laurabiro/furniture-web-app
  cd furnitured-app
 
 Instal dependencies:
+
  npm install
 
 Folder Structure
+
  The project has the following folder structure:
+ 
  furnitured-app
+ 
  |-- src
+ 
  |   |-- components
+ 
  |   |-- pages
+ 
  |   |-- App.css
+ 
  |   |-- App.tsx
+ 
  |-- public
+ 
  |-- vite.config.js
+ 
  |-- tsconfig.json
+ 
  |-- package.json
+ 
  |-- README.md
+ 
 
 Usage
+
  To start the development server, run:
+ 
  npm run dev
 
 Available Scripts
+
  npm run dev: Run the development server
+ 
  npm run build: Build the project for production
+ 
  npm run lint: Lint the project using ESLint
+ 
  npm run preview: Preview the production build locally
+ 
 
 Linting
+
  Lint your project using the following script:
+ 
  npm run lint
+ 
 
 Contributing
+
  Thank you for your interest in contributing to this project. At this time, I am not actively seeking external contributions. 
+ 
  The development of this project is currently being handled by the maintainers, and I have a specific set of guidelines and processes in place.
+ 
  If you have discovered a bug or have a feature request, feel free to open an issue for discussion. However, please note that I may not be actively accepting external pull requests.
+ 
  I appreciate your understanding and thank you for your interest in my project.
+ 
 
 License
+
  This project is licensed under the MIT License - see the LICENSE.md file for details.
+ 
 
 Acknowledgments
+
  Swiper: Used for implementing swipeable components
+ 
  Tailwind CSS: Utility-first CSS framework
+ 
  Vite: Fast, modern frontend tooling for React development
+ 
