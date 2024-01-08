@@ -38,7 +38,7 @@ Prerequisites
  Make sure you have Node.js and npm installed.
 
 Clone repository:
- git clone https://github.com/your-username/furnitured-app.git
+ git clone https://github.com/laurabiro/furniture-web-app
  cd furnitured-app
 
 Instal dependencies:
