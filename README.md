@@ -52,7 +52,7 @@ ________________________________________________________________________
 
 GETTING STARTED
 
- These instructions will help you set up and run the Furnitured App on your local machine.
+ These instructions will help you set up and run the Furnitured App on your local computer.
  
 ________________________________________________________________________
 ________________________________________________________________________
@@ -113,6 +113,8 @@ USAGE
  -To start the development server, run:
  
  npm run dev
+
+ ( Do not forget to run backend at the same time ! )
 
 ________________________________________________________________________
 ________________________________________________________________________
