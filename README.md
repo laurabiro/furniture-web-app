@@ -13,7 +13,7 @@ FURNITURED APP
  Also to simplify design not to draw user's attention to the surroundings, but focus on the furniture itself. Something important to me to have on board, so i would set: dark mode. Gives it even more contrast.
  The last to mention among many others to keep user's engagement in the application is the newsletter, which sends information via email only in the selected subjects that meet the user's interest.
 
-Explore Furnitured App Design
+EXPLORE FURNITURED APP DESIGN
 
  To gain insights into the design concepts and user interface of Furnitured App, you can view my Figma project here:
  
