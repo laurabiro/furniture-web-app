@@ -88,11 +88,11 @@ FOLDER STRUCTURE
  
  |   |-- components
  
- |   |-- pages
- 
- |   |-- App.css
+ |   |-- index.css
  
  |   |-- App.tsx
+
+ |   |-- main.tsx
  
  |-- public
  
