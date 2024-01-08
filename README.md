@@ -6,7 +6,7 @@ FURNITURED APP
  The backend, UX/UI, and the entire design process is my only work, even though i studied mainly frontend skills. 
  This is the first application i started all by myself from the very beginning to the point i am at right now. 
  Which means, desktop views, some filters, toasts and post methods are painfully missing, and waiting for me to carry on.
- However a lot is done, the main effort was the basket lately which involved global variables. The flow is already quite apparent and clear, the menu items all navigate to their pages.
+ However a lot is done, the main effort was the basket lately which involved global variable solutions. The flow is already quite apparent and clear, the menu items all navigate to their pages.
  
  The main idea was to create a new feature which helps users to match selected furnitures in the show room, before they place items in the basket to encourage future purchase and satisfaction,
  and to be fair, make it a little playful for the audience.
