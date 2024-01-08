@@ -1,4 +1,4 @@
-Furnitured App
+FURNITURED APP
 
  Furnitured App is a React application built with Vite, including various libraries and tools.
  
@@ -22,7 +22,10 @@ Explore Furnitured App Design
  For those interested in the technical aspects, the codebase is also available for review.
  Your insights are incredibly valuable at this stage, and I welcome your feedback as I actively work on shaping Furnitured App.
 
-Table of Contents
+________________________________________________________________________
+________________________________________________________________________
+
+TABLE OF CONTENTS
 
  -Getting Started
  
@@ -43,26 +46,39 @@ Table of Contents
  -License
  
  -Acknowledgments
- 
 
-Getting Started
+________________________________________________________________________
+________________________________________________________________________
+
+GETTING STARTED
 
  These instructions will help you set up and run the Furnitured App on your local machine.
+ 
+________________________________________________________________________
+________________________________________________________________________
 
-Prerequisites
+PREREQUISITES
 
  Make sure you have Node.js and npm installed.
 
-Clone repository:
+________________________________________________________________________
+________________________________________________________________________
 
- git clone https://github.com/laurabiro/furniture-web-app
- cd furnitured-app
+INSTALLATION
 
-Instal dependencies:
+-Clone repository:
 
- npm install
+  git clone https://github.com/laurabiro/furniture-web-app
+  cd furnitured-app
 
-Folder Structure
+-Install dependencies:
+
+  npm install
+
+________________________________________________________________________
+________________________________________________________________________
+
+FOLDER STRUCTURE
 
  The project has the following folder structure:
  
@@ -89,13 +105,16 @@ Folder Structure
  |-- README.md
  
 
-Usage
+________________________________________________________________________
+________________________________________________________________________
+
+USAGE
 
  To start the development server, run:
  
  npm run dev
 
-Available Scripts
+ Available Scripts
 
  npm run dev: Run the development server
  
@@ -106,34 +125,40 @@ Available Scripts
  npm run preview: Preview the production build locally
  
 
-Linting
+________________________________________________________________________
+________________________________________________________________________
+
+LINTING
 
  Lint your project using the following script:
  
  npm run lint
  
 
-Contributing
+________________________________________________________________________
+________________________________________________________________________
+
+CONTRIBUTING
 
  Thank you for your interest in contributing to this project. At this time, I am not actively seeking external contributions. 
- 
  The development of this project is currently being handled by the maintainers, and I have a specific set of guidelines and processes in place.
- 
  If you have discovered a bug or have a feature request, feel free to open an issue for discussion. However, please note that I may not be actively accepting external pull requests.
- 
  I appreciate your understanding and thank you for your interest in my project.
  
+________________________________________________________________________
+________________________________________________________________________
 
-License
+LICENCE
 
  This project is licensed under the MIT License - see the LICENSE.md file for details.
  
+________________________________________________________________________
+________________________________________________________________________
 
-Acknowledgments
+ACKNOWLEDGMENTS
 
  Swiper: Used for implementing swipeable components
  
  Tailwind CSS: Utility-first CSS framework
  
  Vite: Fast, modern frontend tooling for React development
- 
