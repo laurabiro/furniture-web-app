@@ -1,4 +1,5 @@
 Furnitured App
+
  Furnitured App is a React application built with Vite, including various libraries and tools.
  
  I curretly develop this mobile-first furniture webshop, an easy-to-follow-through application for the best user experience.
