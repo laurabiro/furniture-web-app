@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className='p-5 pr-4 flex justify-end items-center '>
         <Link to="/newsletter">
-          <div className="to-newsletter bg-[#DEDDE7] h-20 w-20 border-3 border-black border-solid rounded-full cursor-pointer flex justify-center items-center">
+          <div className="to-newsletter bg-[#DEDDE7] dark:bg-white h-20 w-20 border-3 border-black border-solid rounded-full cursor-pointer flex justify-center items-center">
             <svg  viewBox="0 0 1024 1024" className="icon h-14 w-14 p-1" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
               <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
               <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>

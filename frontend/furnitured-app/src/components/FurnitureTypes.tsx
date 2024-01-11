@@ -77,15 +77,16 @@ const FurnitureTypes = () => {
   } 
 
   return (
-    <div className=" pl-4 pr-4 flex justify-center">
+    <div className=" furni-types-cont pl-2 pr-2 flex justify-center">
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col w-11/12 bg-[#43454E] p-2 pt-6 h-screen">
-          <div className=" flex justify-center p-10 ">
+        <div className="flex flex-col w-11/12 bg-[#43454E] pt-6">
+          <div className=" flex justify-center pb-6">
             <FilterForTypes onFilterChange={ handleFilterChange } options={ options } />
           </div>
-          <div className="cardsoftypes flex flex-wrap gap-8 justify-center p-8">
+
+          <div className="cardsoftypes flex flex-wrap gap-8 justify-center p-2">
           
           { furnitures[0] !== undefined ?
           sortedFurnitures.map((furniture) => (
@@ -105,7 +106,9 @@ const FurnitureTypes = () => {
               </Link>
 
               <div className="flex-2 w-1/2 pl-2">
-                <h1 className=" text-2xl font-semibold">{furniture.name}</h1>
+                <Link to={`/selected/${furniture.id}`}>
+                  <h1 className=" text-2xl font-semibold">{furniture.name}</h1>
+                </Link>
                 <p className="text-2xl">{furniture.price} $</p>
                 <h2 className=" decoration-black underline">DESCRIPTION:</h2>
 

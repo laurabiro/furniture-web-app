@@ -21,7 +21,7 @@ function App() {
 
   return (
     
-    <div className={`app-cont min-h-screen m-0 flex flex-col ${footerVisible ? "justify-between" : ""}`}>
+    <div className={`app-cont min-h-screen m-0 flex flex-col ${footerVisible ? "justify-between" : ""} dark:bg-[#DEDDE7]`}>
       <SelectedFurnitureProvider>
 
         <Header></Header>

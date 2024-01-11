@@ -82,3 +82,8 @@ export type Email = z.infer<typeof EmailSchema>
 export const AmountSchema = z.number().gt(1).or(z.null())
 
 export type Amount = z.infer<typeof AmountSchema>
+
+export type Allfaq = {
+    q: string,
+    a: string
+}

@@ -22,7 +22,7 @@ const Livingroom = () => {
   }
  
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center pl-2 dark:bg-white">
         <div className="grid-box">
             { isLoading ? <Loading/> :
                 

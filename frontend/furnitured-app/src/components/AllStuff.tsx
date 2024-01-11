@@ -40,7 +40,9 @@ const AllStuff = () => {
                   </Link>
 
                   <div className="flex-2 w-1/2 pl-2 dark:bg-slate-950 dark:text-[#DEDDE7] rounded-lg pb-1">
-                    <h1 className=" text-2xl font-semibold" >{furniture.name}</h1>
+                    <Link className="" to={`/selected/${furniture.id}`}>
+                      <h1 className=" text-2xl font-semibold" >{furniture.name}</h1>
+                    </Link>
                     <p className="text-2xl">{furniture.price} $</p>
                     <h2 className=" decoration-black underline dark:decoration-[#DEDDE7]" >DESCRIPTION:</h2>
 

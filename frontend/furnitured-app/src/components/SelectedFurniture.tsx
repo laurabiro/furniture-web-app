@@ -83,29 +83,33 @@ const SelectedFurniture = () => {
                                 <img className='h-60 w-auto p-2' src={furniture.picture} alt={furniture.name} />
                             </div>
                         </div>
-                        <div className='text-[#DEDDE7] p-4'>
-                            <h2 className='text-2xl pb-2 underline'>DESCRIPTION:</h2>
-                            <p>-material: {furniture.material.join(", ")}</p>
-                            <p>-size: {furniture.height} x {furniture.width} x {furniture.depth}</p>
-                            <p>-color: {furniture.color.join(", ")}</p>
+                        <div className='cont-for-details'>
+                            <div className='text-[#DEDDE7] p-4'>
+                                <h2 className='text-2xl pb-2 underline'>DESCRIPTION:</h2>
+                                <p>-material: {furniture.material.join(", ")}</p>
+                                <p>-size: {furniture.height} x {furniture.width} x {furniture.depth}</p>
+                                <p>-color: {furniture.color.join(", ")}</p>
+                            </div>
+                            <div className='text-[#DEDDE7] p-4 pb-0'>
+                                <h2 className='text-2xl pb-2 underline'>MORE ABOUT:</h2>
+                                <p>{furniture.description}</p>
+                            </div>
                         </div>
-                        <div className='text-[#DEDDE7] p-4 pb-0'>
-                            <h2 className='text-2xl pb-2 underline'>MORE ABOUT:</h2>
-                            <p>{furniture.description}</p>
-                        </div>
-                        <div className='text-[#DEDDE7] pl-4'><span className={`${furniture.availability === false ? "text-red-600" :"text-lime-600"}`}>{furniture.availability === false ? "not available " : "avaliable " }</span>at the moment</div>
-                        <div className='text-[#DEDDE7] p-4 flex'>
-                            <div className='text-4xl'>{ furniture.price } $</div>
-                        </div>
-                        <p className='pl-4 text-[#DEDDE7]'>Add to:</p>
-                        <div className=' flex justify-center p-2 pt-0 gap-8'>
-                            <button onClick={() => handleAddToBasket(furniture)} className='p-4 bg-[#DEDDE7] rounded-xl font-semibold flex-2'>BASKET</button>
-                            <div className="flex justify-center items-center text-white w-60">{message}</div>
-                            <Link to="/livingroom"><button className='p-4 bg-[#DEDDE7] rounded-xl font-semibold' onClick={() => handleAddToLivingroom(furniture)}>LIVINGROOM</button></Link>
+                        <div className='basket-livingroom'>
+                            <div className='text-[#DEDDE7] pl-4 pt-2 flex'><span className={`${furniture.availability === false ? "text-red-600" :"text-lime-600"}`}>{furniture.availability === false ? "not available " : "avaliable " }</span>at the moment</div>
+                            <div className='text-[#DEDDE7] p-4 flex'>
+                                <div className='text-4xl'>{ furniture.price } $</div>
+                            </div>
                             
+                            <p className='addto pl-4 text-[#DEDDE7]'>Add to:</p>
+                            <div className=' flex justify-center p-2 pt-0 gap-8'>
+                                <button onClick={() => handleAddToBasket(furniture)} className='p-6 bg-[#DEDDE7] rounded-xl font-semibold'>BASKET</button>
+                                <div className="flex justify-center items-center text-white w-60">{message}</div>
+                                <Link className="pr-2" to="/livingroom"><button className='p-6 bg-[#DEDDE7] rounded-xl font-semibold' onClick={() => handleAddToLivingroom(furniture)}>LIVINGROOM</button></Link>   
+                            </div>
                         </div>
-                        <div className='flex justify-between p-4 pt-8 items-center'>
-                            <Link to="/all"><div className='rounded-full bg-white p-10 border-black border-solid border-2'>back</div></Link>
+                        <div className='flex justify-between p-2 pt-4 items-center'>
+                            <Link to="/all"><div className='back-but rounded-full bg-white p-4 leading-loose border-black border-solid border-2'>back</div></Link>
                             <div className={`text-2xl p-2 ${furniture.id === 1 ? "text-[#43454E] dark:text-gray-900" : "text-[#DEDDE7]"} cursor-pointer`} onClick={ handlePrevious }>previous</div>
                             <div className={`text-2xl p-2 ${furniture.id === length ? "text-[#43454E] dark:text-gray-900 " : "text-[#DEDDE7] "} cursor-pointer`} onClick={ handleNext }>next</div>
                         </div>

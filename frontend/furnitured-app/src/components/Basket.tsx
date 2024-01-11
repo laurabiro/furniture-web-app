@@ -42,7 +42,7 @@ const Basket = () => {
           <div className="pr-6">{total + " $"}</div>
         </div>
           
-        <h2 className="pl-4">delivery</h2>
+        <h2 className="pl-4 dark:text-slate-50">delivery</h2>
         <div className="flex gap-4 pl-4">
           <input type="checkbox" />
           <div className=' dark:text-slate-50'>icon
@@ -59,7 +59,7 @@ const Basket = () => {
         </div>
         <p className=" text-justify text-sm pl-8 pr-8 pt-2  dark:text-slate-50"> asdf afsg afa scipit ipsam ut dicta et modi commodi quidem magni provident, culpa unde quos, sit rerum libero?</p>
         
-        <h2 className="pl-4">payment</h2>
+        <h2 className="pl-4 dark:text-slate-50">payment</h2>
         <div className="flex gap-4 pl-4">
           <input type="checkbox" />
           <div className=' dark:text-slate-50'>icon
@@ -76,15 +76,16 @@ const Basket = () => {
         </div>
         <p className=" text-justify text-sm pl-8 pr-8 pt-2 pb-8  dark:text-slate-50"> asdf afsg afa scipit ipsam ut dicta et modi commodi quidem magni provident, culpa unde quos, sit rerum libero?</p>
 
-        <div className="flex justify-center pb-4">
+        <div className="flex justify-center pb-4 gap-4 flex-wrap">
           <input className="rounded-lg w-40 placeholder:text-center text-center" type="text" placeholder="ZIP code"/>
-        </div>
-        <div className="flex justify-center gap-4 pb-4">
-          <input className="rounded-lg w-40 placeholder:text-center text-center" type="text" placeholder="firstname"/>
-          <input className="rounded-lg w-40 placeholder:text-center" type="text" placeholder="lastname"/>
+          <input className="rounded-lg w-40 placeholder:text-center text-center" type="text" placeholder="City"/>
         </div>
         <div className="flex justify-center pb-4">
           <input className="rounded-lg w-64 placeholder:text-center text-center" type="text" placeholder="address eg. Livingroom street 1"/>
+        </div>
+        <div className="flex justify-center gap-4 pb-4 flex-wrap">
+          <input className="rounded-lg w-40 placeholder:text-center text-center" type="text" placeholder="firstname"/>
+          <input className="rounded-lg w-40 placeholder:text-center" type="text" placeholder="lastname"/>
         </div>
         <div className="flex justify-center pb-4 gap-4">
           <input className="rounded-lg w-14 placeholder:text-center text-center" type="text" placeholder="+44"/>
@@ -106,7 +107,7 @@ const Basket = () => {
           <div className=" dark:text-slate-50">agree to terms and conditions</div>
         </div>
         <div className="flex justify-center pb-4">
-          <button className="bg-white border-3 border-black border-solid rounded-xl w-1/2 text-4xl p-2">CONFIRM</button>
+          <button className="bg-white border-3 border-black border-solid rounded-xl p-2 text-3xl">CONFIRM</button>
         </div>
       </div>
       

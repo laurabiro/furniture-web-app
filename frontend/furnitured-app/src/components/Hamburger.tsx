@@ -19,7 +19,7 @@ const Hamburger = ({ onClose }:Props) => {
     ]
 
   return (
-    <div className="burger bg-[#DEDDE7] dark:bg-gray-900 p-8 pb-10 h-full fixed flex items-center flex-col gap-4 right-3">
+    <div className="burger overflow-y-auto bg-[#DEDDE7] dark:bg-gray-900 p-8 pb-40 h-full fixed flex items-center flex-col gap-4 right-3">
         { menuList.map((item) => (
             <Link to={item.link}><div key={item.id} className="bg-white p-4 rounded-xl text-2xl flex justify-center items-center w-80" onClick={onClose}>{item.name}</div></Link>
         ))}  

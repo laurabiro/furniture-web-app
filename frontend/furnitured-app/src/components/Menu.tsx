@@ -12,6 +12,7 @@ import "/src/index.css";
 
 
 const Menu =() => {
+  
   const slides: Slide[] = [
     {
       title: "my livingroom",
@@ -51,7 +52,7 @@ const Menu =() => {
   const matches = useMediaQuery("(max-width: 1000px)")
 
   return (
-    <div className="flex items-center pt-28">
+    <div className="flex justify-center pt-28 dark:bg-slate-900">
       {matches ? (
         <Swiper
           effect={"cards"}
@@ -86,14 +87,13 @@ const Menu =() => {
           ))}
         </Swiper>
       ) : (
-        <div>
-          <div className="floor"></div>
+        <div className="menu-grid-box">
           
           {furnitures.map((furniture, index) => (
-            <div key={index}>
+            <div key={index} className={furniture + "s"}>
               <Link className="link" to={`/types/${furniture}`}>
-                <div className={furniture + "s"}>
-                <img className={furniture} src={furniture + ".png"}  alt="" />
+                <div>
+                  <img className={furniture + "-menu"} src={furniture + ".png"}  alt={furniture} />
                 </div>
               </Link>
             </div>

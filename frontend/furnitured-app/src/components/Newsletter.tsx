@@ -27,7 +27,7 @@ const Newsletter = () => {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center text-xl pb-4'>
+    <div className='flex flex-col items-center justify-center text-xl pb-4 dark:bg-[#DEDDE7]'>
      
       <div className='text-lg pr-24 pt-10'>
         <p className='italic font-bold text-xl'>Do not worry,</p>
@@ -37,7 +37,7 @@ const Newsletter = () => {
         <p className='pb-2'>a new item <span className=' decoration-black decoration-solid underline text-xl'>arrives</span>:</p>
       </div>
 
-      <div className='bg-[#43454E] p-2 pr-6 pl-6 rounded flex flex-col gap-3 pb-4'>
+      <div className='bg-[#43454E] p-2 pr-6 pl-6 rounded flex flex-col gap-3 pb-4 dark:bg-gray-900'>
         <div className='flex flex-col gap-2 pt-3'>
           <input type="text" placeholder="your lovely name" className=' border-2 border-black rounded p-1' value={nameValue} onChange={((e) => setNameValue(e.target.value))}/>
           <input type="text" placeholder="your email address" className=' border-2 border-black rounded p-1' value={emailValue} onChange={((e) => setEmailValue(e.target.value))}/>

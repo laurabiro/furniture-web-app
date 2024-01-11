@@ -3,26 +3,28 @@ import Hamburger from './Hamburger';
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-    const [hamburgerOpen, setHamburgerOpen] = useState(false)
-    const navigate = useNavigate()
+  const [hamburgerOpen, setHamburgerOpen] = useState(false)
+  const navigate = useNavigate()
 
-    const handleOpenAndCloseHamburger = () => {
-        setHamburgerOpen(!hamburgerOpen)
+  const handleOpenAndCloseHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen)
+  }
+
+  const handleCloseHamburger = () => {
+    setHamburgerOpen(false)
+  }
+
+  const handleBasketClick = () => {
+
+    if (window.location.pathname === '/basket') {
+
+      navigate(-2)
+    } else {
+
+      navigate("/basket")
     }
-    const handleCloseHamburger = () => {
-      setHamburgerOpen(false)
-    }
 
-    const handleBasketClick = () => {
-
-      if (window.location.pathname === '/basket') {
-
-        navigate(-1)
-      } else {
-
-        navigate("/basket")
-      }
-      handleCloseHamburger()
+    handleCloseHamburger()
   }
     
   return (
