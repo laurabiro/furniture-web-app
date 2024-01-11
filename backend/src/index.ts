@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(logger)
 app.use((req, res, next) => {
   console.log("loading...\n")
-  setTimeout(next, 500)
+  setTimeout(next, 800)
 })
 
 app.use("/api/furnitures", furnitures)

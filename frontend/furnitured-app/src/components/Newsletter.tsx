@@ -53,7 +53,7 @@ const Newsletter = () => {
           ))}
           
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center pt-2'>
           <button className=' p-1 bg-slate-300 w-16 rounded-md text-base font-semibold'>SEND</button>
         </div>
       </div>
