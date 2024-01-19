@@ -50,7 +50,7 @@ router.get("/", async (req:Request, res:Response) => {
     let db = z.object({ furnitures: FurnitureScheme.array() }).parse(data)
 
     
-    let furnitures = db.furnitures.filter( furniture => {
+    let furnitures = db.furnitures.filter( (furniture):boolean => {
     
         if (query.name){
            
@@ -60,7 +60,7 @@ router.get("/", async (req:Request, res:Response) => {
         }
     })
 
-   furnitures = furnitures.filter( furniture => {
+   furnitures = furnitures.filter( (furniture):boolean => {
         if (query.type){
             return furniture.type.includes(query.type)
         }else{
@@ -68,7 +68,7 @@ router.get("/", async (req:Request, res:Response) => {
         }
     })
 
-    furnitures = furnitures.filter( furniture => {
+    furnitures = furnitures.filter( (furniture):boolean | Furniture[] => {
         let colors = furniture.color
         if (query.color) {
             let match = false
@@ -92,7 +92,7 @@ router.get("/", async (req:Request, res:Response) => {
         
     })
 
-    furnitures = furnitures.filter( furniture => {
+    furnitures = furnitures.filter( (furniture):boolean => {
         let materials = furniture.material
             
         if (query.material) {
@@ -107,7 +107,7 @@ router.get("/", async (req:Request, res:Response) => {
         
     })
  
-    furnitures = furnitures.filter(furniture => {
+    furnitures = furnitures.filter((furniture):boolean | number => {
 
        if(query.minPrice && query.maxPrice){
         if(furniture.price > +query.minPrice && furniture.price <= +query.maxPrice){
@@ -121,7 +121,7 @@ router.get("/", async (req:Request, res:Response) => {
 
     }) 
 
-    furnitures = furnitures.filter( furniture => {
+    furnitures = furnitures.filter( (furniture):boolean => {
             
         if (query.availability){
             let availablity = query.availability === "true" ? true : false
