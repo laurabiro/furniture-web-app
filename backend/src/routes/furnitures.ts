@@ -141,7 +141,7 @@ router.get("/:id", async (req:Request, res:Response) => {
 
     let db = z.object({ furnitures: FurnitureScheme.array() }).parse(data)
 
-    let furniture = db.furnitures.filter((furniture) => {
+    let furniture = db.furnitures.filter((furniture:Furniture):boolean => {
        return ""+furniture.id === req.params.id
     })
 
