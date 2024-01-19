@@ -1,5 +1,6 @@
 import "express-async-errors"
 import express from "express"
+import { Request, Response, NextFunction } from 'express';
 import cors from "cors"
 import { logger } from "./middleware/logger"
 import { router as furnitures } from "./routes/furnitures"
@@ -12,7 +13,7 @@ app.use(express.static('database'));
 app.use(cors())
 app.use(express.json())
 app.use(logger)
-app.use((req, res, next) => {
+app.use((req:Request, res:Response, next:NextFunction) => {
   console.log("loading...\n")
   setTimeout(next, 800)
 })

@@ -1,6 +1,7 @@
 import express from "express"
 import { z } from "zod"
 import { load } from "../utils/db"
+import { Request, Response } from 'express';
 
 
 const router = express.Router()
@@ -35,7 +36,7 @@ const FilterRequest = z.object({
     size: z.string().optional(),
 })
 
-router.get("/", async (req, res) => {
+router.get("/", async (req:Request, res:Response) => {
 
     const queryParseResult = FilterRequest.safeParse(req.query)
     if (!queryParseResult.success){
@@ -133,7 +134,7 @@ router.get("/", async (req, res) => {
     return res.json(furnitures)
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req:Request, res:Response) => {
     req.params.id
 
     const data = await load("furnitures")

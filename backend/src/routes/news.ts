@@ -1,6 +1,7 @@
 import express from "express"
 import { z } from "zod"
 import { load, save } from "../utils/db"
+import { Request, Response } from 'express';
 
 const router = express.Router()
 
@@ -17,7 +18,7 @@ const NewsScheme = z.object ({
     carpits: z.boolean(),
 })
 
-router.post("/", async (req, res) => {
+router.post("/", async (req:Request, res:Response) => {
     const parseResult = NewsScheme.safeParse(req.body)
 
     if(!parseResult.success){
