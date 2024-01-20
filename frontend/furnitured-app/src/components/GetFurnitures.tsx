@@ -5,6 +5,7 @@ import { Furniture } from "./T";
 import { Response } from "./T";
 
 // BASE URL -------------------------------------------------------------------------------------------------------------------------
+console.log(process.env.NODE_ENV)
 const baseURL = process.env.NODE_ENV === 'production'
   ? 'https://furnitured-app8.onrender.com'
   : 'http://localhost:8000'
