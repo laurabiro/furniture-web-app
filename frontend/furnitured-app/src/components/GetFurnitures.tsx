@@ -6,7 +6,7 @@ import { Response } from "./T";
 
 // BASE URL -------------------------------------------------------------------------------------------------------------------------
 console.log(process.env.NODE_ENV)
-const baseURL = process.env.NODE_ENV === 'production'
+const baseURL = process.env.NODE_ENV === 'development'
   ? 'https://furnitured-app8.onrender.com'
   : 'http://localhost:8000'
 
