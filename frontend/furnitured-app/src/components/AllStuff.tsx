@@ -35,7 +35,7 @@ const AllStuff = () => {
                   
                   <Link className="flex-1 flex justify-center items-center" to={`/selected/${furniture.id}`}>
                     <div >
-                      <img className=" h-36 w-auto rounded-lg" src={`https://furnitured-app8.onrender.com//api/furnitures/${furniture.picture}`} alt={furniture.name} />
+                      <img className=" h-36 w-auto rounded-lg" src={`https://furnitured-app8.onrender.com/api/furnitures/${furniture.picture}`} alt={furniture.name} />
                     </div>
                   </Link>
 
