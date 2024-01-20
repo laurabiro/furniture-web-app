@@ -5,8 +5,12 @@ import { Furniture } from "./T";
 import { Response } from "./T";
 
 // BASE URL -------------------------------------------------------------------------------------------------------------------------
+const baseURL = process.env.NODE_ENV === 'production'
+  ? 'https://furnitured-app8.onrender.com'
+  : 'http://localhost:8000'
+
 const client = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL,
 })
 
 //GET -------------------------------------------------------------------------------------------------------------------------------
