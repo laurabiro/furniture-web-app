@@ -96,7 +96,7 @@ const SelectedFurniture = () => {
                             </div>
                         </div>
                         <div className='basket-livingroom'>
-                            <div className='text-[#DEDDE7] pl-4 pt-2 flex'><span className={`${furniture.availability === false ? "text-red-600" :"text-lime-600"}`}>{furniture.availability === false ? "not available " : "avaliable " }</span>at the moment</div>
+                            <div className='text-[#DEDDE7] pl-4 pt-2 flex'><span className={`${furniture.availability === false ? "text-red-600" :"text-lime-600"}`}>{furniture.availability === false ? " not available " : " avaliable " }</span>at the moment</div>
                             <div className='text-[#DEDDE7] p-4 flex'>
                                 <div className='text-4xl'>{ furniture.price } $</div>
                             </div>
